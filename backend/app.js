@@ -7,7 +7,11 @@ const cors = require('cors');
 const UserAPI = require('./routes/user');
 const DairyAPI = require('./routes/dairy');
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://diary-dok.vercel.app', // Replace with your frontend URL
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
+}));
 app.use(express.json());
 
 app.use("/api/v1", UserAPI);
