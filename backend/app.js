@@ -8,7 +8,7 @@ const UserAPI = require('./routes/user');
 const DairyAPI = require('./routes/dairy');
 
 app.use(cors({
- origin: 'https://celebrated-druid-0af2c9.netlify.app/', // Replace with your frontend URL
+  origin: 'https://diary-dok.vercel.app', // Replace with your frontend URL
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization,id'
 }));
