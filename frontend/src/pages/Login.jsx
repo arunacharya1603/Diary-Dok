@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
   const navigate = useNavigate();
+  const BASE_URL = process.env.BASE_URL;
   const [Data, setData] = useState({ username: "", password: "" });
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -28,7 +29,7 @@ const Login = () => {
         alert("Please fill all the fields");
       } else {
         const response = await axios.post(
-          "http://localhost:1000/api/v1/login",
+          `${BASE_URL}/api/v1/login`,
           Data
         );
         setData({ username: "", password: "" });

@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const CompletedDairies = ({ fetchData }) => {
   const [Data, setData] = useState([]);
+  const BASE_URL = process.env.BASE_URL;
   const [error, setError] = useState(null);
 
   const headers = useMemo(() => ({
@@ -13,7 +14,7 @@ const CompletedDairies = ({ fetchData }) => {
 
   const fetchCompletedData = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:1000/api/v2/get-complete-post", { headers });
+      const response = await axios.get(`${BASE_URL}/api/v2/get-complete-post`, { headers });
       setData(response.data.data);
     } catch (error) {
       console.error("Error fetching completed dairies", error);

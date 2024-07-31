@@ -5,6 +5,7 @@ import InputData from "../components/Home/InputData";
 import axios from "axios";
 
 const AllMemories = () => {
+  const BASE_URL = process.env.BASE_URL;
   const [input, setInput] = useState("hidden");
   const [Data, setData] = useState();
   const [updatedData, setUpdatedData] = useState({
@@ -24,7 +25,7 @@ const AllMemories = () => {
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(
-        "http://localhost:1000/api/v2/get-all-post",
+        `${BASE_URL}/api/v2/get-all-post`,
         { headers }
       );
       setData(response.data.data);

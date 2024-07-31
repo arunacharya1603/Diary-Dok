@@ -8,7 +8,9 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { logout as logOut } from "../../store/auth";
 
+
 const SideBar = () => {
+  const BASE_URL = process.env.BASE_URL;
   const dispatch = useDispatch();
   const history = useNavigate();
   const data = [
@@ -70,7 +72,7 @@ const SideBar = () => {
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get(
-        "http://localhost:1000/api/v2/get-all-post",
+        `${BASE_URL}/api/v2/get-all-post`,
         { headers }
       );
       setData(response.data.data);

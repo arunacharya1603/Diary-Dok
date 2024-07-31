@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const BASE_URL = process.env.BASE_URL;
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   if (isLoggedIn) {
@@ -24,7 +25,7 @@ const SignUp = () => {
         alert("Please fill all the fields");
       } else {
         const response = await axios.post(
-          "http://localhost:1000/api/v1/sign-in",
+          `${BASE_URL}/api/v1/sign-in`,
           Data
         );
         setData({ username: "", email: "", password: "" });

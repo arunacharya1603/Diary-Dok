@@ -2,7 +2,9 @@ import axios from "axios";
 import React, { useEffect, useMemo, useState } from "react";
 import { GiCrossMark } from "react-icons/gi";
 
+
 const InputData = ({
+  
   input,
   setInput,
   updatedData,
@@ -10,12 +12,15 @@ const InputData = ({
   fetchData,
 }) => {
 
+
+
   const headers = useMemo(()=>({
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
   }), []);
 
   const [Data, setData] = useState({ title: "", desc: "" });
+  const BASE_URL = process.env.BASE_URL;
 
   useEffect(() => {
     setData({ title: updatedData.title, desc: updatedData.desc });
@@ -37,7 +42,7 @@ const InputData = ({
     if (Data.title === "" || Data.desc === "") {
       alert("Please fill all the fields");
     } else {
-      await axios.post("http://localhost:1000/api/v2/create-post", Data, {
+      await axios.post(`${BASE_URL}/api/v2/create-post`, Data, {
         headers,
       });
       setData({ title: "", desc: "" });
@@ -51,7 +56,7 @@ const InputData = ({
       alert("Please fill all the fields");
     } else {
       await axios.put(
-        `http://localhost:1000/api/v2/update-post/${updatedData.id}`,
+        `${BASE_URL}/api/v2/update-post/${updatedData.id}`,
         Data,
         {
           headers,

@@ -9,6 +9,7 @@ import axios from "axios";
 const Cards = ({ home, setInput, data, setUpdatedData, fetchData }) => {
   // const [importantBtn, setImportantBtn] = useState("Incomplete");
 
+  const URL = process.env.BASE_URL;
   const headers = () => ({
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -17,7 +18,7 @@ const Cards = ({ home, setInput, data, setUpdatedData, fetchData }) => {
   const handleCompleteDairy = async (id) => {
     try {
       await axios.put(
-        `http://localhost:1000/api/v2/update-complete-post/${id}`,
+        `${URL}/api/v2/update-complete-post/${id}`,
         {},
         { headers: headers() }
       );
@@ -30,7 +31,7 @@ const Cards = ({ home, setInput, data, setUpdatedData, fetchData }) => {
   const handleImportant = async (id) => {
     try {
       await axios.put(
-        `http://localhost:1000/api/v2/update-imp-post/${id}`,
+        `${URL}/api/v2/update-imp-post/${id}`,
         {},
         { headers: headers() }
       );
@@ -47,7 +48,7 @@ const Cards = ({ home, setInput, data, setUpdatedData, fetchData }) => {
 
   const deleteDairy = async (id) => {
     try {
-      await axios.delete(`http://localhost:1000/api/v2/delete-post/${id}`, {
+      await axios.delete(`${URL}/api/v2/delete-post/${id}`, {
         headers: headers(),
       });
       fetchData();
