@@ -10,7 +10,7 @@ const DairyAPI = require('./routes/dairy');
 app.use(cors({
   origin: 'https://diary-dok.vercel.app', // Replace with your frontend URL
   methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type,Authorization'
+  allowedHeaders: 'Content-Type,Authorization,id'
 }));
 
 app.use(express.json());
