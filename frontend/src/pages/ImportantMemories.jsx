@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const ImportantMemories = () => {
   const [Data, setData] = useState([]);
-  const BASE_URL = process.env.BASE_URL;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const headers = useMemo(() => ({
     id: localStorage.getItem("id"),
@@ -18,7 +18,7 @@ const ImportantMemories = () => {
     } catch (error) {
       console.error("Error fetching important memories", error);
     }
-  }, [headers]);
+  }, [headers, BASE_URL]);
 
   useEffect(() => {
     if (headers.id && headers.authorization) {

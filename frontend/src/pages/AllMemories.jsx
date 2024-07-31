@@ -5,7 +5,7 @@ import InputData from "../components/Home/InputData";
 import axios from "axios";
 
 const AllMemories = () => {
-  const BASE_URL = process.env.BASE_URL;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [input, setInput] = useState("hidden");
   const [Data, setData] = useState();
   const [updatedData, setUpdatedData] = useState({
@@ -32,7 +32,7 @@ const AllMemories = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-  }, [headers]);
+  }, [headers,BASE_URL]);
 
   useEffect(() => {
     if (headers.id && headers.authorization) {

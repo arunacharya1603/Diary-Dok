@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const BASE_URL = process.env.BASE_URL;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   if (isLoggedIn) {

@@ -4,7 +4,7 @@ import Cards from '../components/Home/Cards';
 
 const IncompletedDairies = ({  fetchData}) => {
   const [Data, setData] = useState();
-  const BASE_URL = process.env.BASE_URL;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const headers = useMemo(()=>({
     id: localStorage.getItem("id"),
@@ -19,7 +19,7 @@ const IncompletedDairies = ({  fetchData}) => {
     } catch (error) {
       console.error("Error fetching completed dairies", error);
     }
-  },[headers]);
+  },[headers, BASE_URL]);
 
   useEffect(() => {
     if (headers.id && headers.authorization) {

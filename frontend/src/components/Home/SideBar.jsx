@@ -10,7 +10,7 @@ import { logout as logOut } from "../../store/auth";
 
 
 const SideBar = () => {
-  const BASE_URL = process.env.BASE_URL;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const dispatch = useDispatch();
   const history = useNavigate();
   const data = [
@@ -79,7 +79,8 @@ const SideBar = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-  }, [headers]);
+  }, [headers,BASE_URL]);
+
   useEffect(() => {
     if (headers.id && headers.authorization) {
       fetchData();
@@ -98,10 +99,13 @@ const SideBar = () => {
 
   return (
     <>
-      {Data && (
+     {Data && (
         <div>
           <h2 className="lg:text-2xl md:text-xl text-sm lg:font-semibold md:font-semibold font-bold">
-            {Data.username}
+            <span className="block h-8 w-8 m-2 pl-2 rounded-3xl bg-slate-500 text-2xl lg:hidden md:hidden">
+              {Data.username.charAt(0).toUpperCase()}
+            </span>
+            <span className="hidden lg:block md:block">{Data.username}</span>
           </h2>
           <h4 className="md:my-2 lg:text-gray-900 md:text-gray-950 md:block lg:block hidden">
             {Data.email}

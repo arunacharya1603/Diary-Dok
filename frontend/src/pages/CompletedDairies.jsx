@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const CompletedDairies = ({ fetchData }) => {
   const [Data, setData] = useState([]);
-  const BASE_URL = process.env.BASE_URL;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [error, setError] = useState(null);
 
   const headers = useMemo(() => ({
@@ -20,7 +20,7 @@ const CompletedDairies = ({ fetchData }) => {
       console.error("Error fetching completed dairies", error);
       setError("Failed to fetch completed dairies. Please try again later.");
     }
-  },[headers]);
+  },[headers, BASE_URL]);
 
   useEffect(() => {
     if (headers.id && headers.authorization) {

@@ -9,7 +9,7 @@ import axios from "axios";
 const Cards = ({ home, setInput, data, setUpdatedData, fetchData }) => {
   // const [importantBtn, setImportantBtn] = useState("Incomplete");
 
-  const URL = process.env.BASE_URL;
+  const URL = process.env.REACT_APP_BASE_URL;
   const headers = () => ({
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -20,7 +20,7 @@ const InputData = ({
   }), []);
 
   const [Data, setData] = useState({ title: "", desc: "" });
-  const BASE_URL = process.env.BASE_URL;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     setData({ title: updatedData.title, desc: updatedData.desc });

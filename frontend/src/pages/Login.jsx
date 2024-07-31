@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Login = () => {
   const navigate = useNavigate();
-  const BASE_URL = process.env.BASE_URL;
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [Data, setData] = useState({ username: "", password: "" });
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
