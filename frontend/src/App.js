@@ -24,7 +24,7 @@ const App = () => {
    else if (!isLoggedIn) {
       navigate("/signup");
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, dispatch, navigate]);
 
   return (
     <div className="bg-custom-gradient lg:p-4 text-black h-screen relative">
